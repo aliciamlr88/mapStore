@@ -1,0 +1,18 @@
+#canvasDiv{
+    text-align: center;
+}
+
+#myCanvas {
+    background-color: #f8f9fa;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+
+
+
+.draggable-image {
+    cursor: pointer;
+ 
+    
+}

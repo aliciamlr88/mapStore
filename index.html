@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                MapStore
+              </a>
+            </div>
+          </nav>
+    </header>
+    <main>
+
+        <div class="container-fluid">
+            <div class="row mt-3">
+                <div class="col-lg-4 col-sm-12 ">
+                    <div class="btn btn-warning btn-rounded">
+                        <label class="form-label text-white m-1" for="inputImagen">Upload Map</label>
+                        <input type="file" class="form-control d-none" id="inputImagen" accept="image/*" />
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-12 ">
+                    <div class="text-center">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnMode" value="drag" id="dragMode" autocomplete="off" checked>
+                            <label class="btn btn-outline-success" for="dragMode">Drag Elements</label>
+                          
+                            <input type="radio" class="btn-check" name="btnMode" value="rotate" id="rotateMode" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="rotateMode">Rotate Elements</label>
+                          
+                            <input type="radio" class="btn-check" name="btnMode" value="delete" id="deleteMode" autocomplete="off">
+                            <label class="btn btn-outline-danger" for="deleteMode">Delete Elements</label>
+                          </div>
+
+                        </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xl-4 col-sm-12 mb-2">
+
+
+                    <div class="card px-2 pt-2">
+                        <div class="body mx-auto">
+                            <div class="image-container" id="drag-items">
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="table" src="img/table.png"
+                                            alt="Table">
+                                        <p class="fs-6">Table</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="nester" height="44"
+                                            src="img/nester.png" alt="Table w/ nester">
+                                        <p class="fs-6">Table w/ nester</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="footwear_fp"
+                                            src="img/footwear_fp.png"
+                                            alt="Three tier table (OT) or Footwear table (FP)">
+                                        <p class="fs-6">Three tier table (OT)</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="round_table"
+                                            src="img/round_table.png" alt="Round Table">
+                                        <p class="fs-6">Round Table</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="footwear_ot"
+                                            src="img/footwear_ot.png" alt="Footwear Table (OT)">
+                                        <p class="fs-6">Footwear Table (OT)</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0 mt-0" id="t_stand"
+                                            src="img/t_stand.png" alt="T-stand">
+                                        <p class="fs-6">T-stand</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="piperack" src="img/piperack.png"
+                                            alt="Piperrack / Wardrober">
+                                        <p class="fs-6">Piperrack / Wardrober</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="combo" src="img/combo.png"
+                                            alt="Combo">
+                                        <p class="fs-6">Combo</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="rounder" src="img/rounder.png"
+                                            alt="Rounder">
+                                        <p class="fs-6">Rounder</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="accesory_fixture"
+                                            src="img/accesory_fixture.png" alt="Accesory Fixture">
+                                        <p class="fs-6">Accesory Fixture</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="etagere" src="img/etagere.png"
+                                            alt="Etagere">
+                                        <p class="fs-6">Etagere</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="two_way_fixture"
+                                            src="img/two_way_fixture.png" alt="Two-way fixture">
+                                        <p class="fs-6">Two-way fixture</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="sunglass_fixture"
+                                            src="img/sunglass_fixture.png" alt="Sunglass fixture">
+                                        <p class="fs-6">Sunglass fixture</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="mannequin" src="img/mannequin.png"
+                                            alt="Mannequin / 3/4 Bust for">
+                                        <p class="fs-6">Mannequin</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="upper_bay" src="img/upper_bay.png"
+                                            alt="Upper wall bay (UWB) graphic">
+                                        <p class="fs-6">Upper wall bay</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="bust_form" src="img/bust_form.png"
+                                            alt="Bust form">
+                                        <p class="fs-6">Bust form</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                        <img class="draggable-image mx-auto mb-0" id="leg_form" src="img/leg_form.png"
+                                            alt="Leg forms">
+                                        <p class="fs-6">Leg forms</p>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12 text-center">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-sm-12 ">
+                    <div id="canvasDiv" >
+                        <canvas id="myCanvas" width="1000" height="600" ></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="float-end">
+                <button class="btn btn-danger" id="deleteCanvas" >Delete all</button>
+                <button class="btn btn-info"  id="downloadImage" onclick="descargarImagen()">Download Image</button>
+            </div>
+
+
+
+            
+            <br>
+
+
+
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container-fluid">
+            <p class="float-start">© MapStore 2023</p>
+        </div>
+    </footer>
+</body>
+
+</html>
