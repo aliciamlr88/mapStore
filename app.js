@@ -89,8 +89,15 @@ function drawCanvasImages() {
 dragImages.forEach((imagen) => {
     imagen.addEventListener("dragstart", function (event) {
         dragObject = event.target;
+     
         event.dataTransfer.setDragImage(dragObject, 0, 0);
     });
+    imagen.addEventListener("touchstart", function (event) {
+        dragObject = event.target;
+        
+    });
+
+    
 });
 
 
@@ -98,7 +105,36 @@ canvas.addEventListener("dragover", function (event) {
     event.preventDefault();
 });
 
+canvas.addEventListener("touchover", function (event) {
+    event.preventDefault();
+});
+
 canvas.addEventListener("drop", function (event) {
+    event.preventDefault();
+
+    if (dragObject) {
+        const x = event.clientX - canvas.getBoundingClientRect().left;
+        const y = event.clientY - canvas.getBoundingClientRect().top;
+
+
+        const newImage = new Image();
+        newImage.src = dragObject.src;
+        imagesCanvasArray.push({
+            img: newImage,
+            srcImage: dragObject.src,
+            x: x,
+            y: y,
+            width: dragObject.width, 
+            height: dragObject.height, 
+            rotation: 0,
+            isDragging: false
+        });
+
+        drawCanvasImages();
+    }
+});
+
+canvas.addEventListener("touchend", function (event) {
     event.preventDefault();
 
     if (dragObject) {
@@ -291,9 +327,9 @@ function saveDataLocalStorage() {
         backgroundImg: backgroundImg != null ? backgroundImg.src : ""
     };
     localStorage.setItem("canvasInfo", JSON.stringify(canvasInfo));
-    console.log(canvasInfo);
+   
     const storedData = JSON.parse(localStorage.getItem("canvasInfo"));
-    console.log(storedData);
+    
 
 }
 
